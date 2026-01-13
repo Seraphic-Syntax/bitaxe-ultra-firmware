@@ -8,6 +8,7 @@
 #include "esp_event.h"
 #include "nvs_flash.h"
 #include "esp_netif.h"
+#include "http_server.h"
 #include "esp_wifi.h"
 
 #include "global_state.h"
@@ -75,18 +76,13 @@ static void worker_task(void *arg)
 void app_main(void)
 {
     ESP_ERROR_CHECK(nvs_flash_init());
-
-    GlobalState_Init();
-
-    ESP_ERROR_CHECK(i2c_init());
-    ESP_ERROR_CHECK(thermal_init());
+    ESP_ERROR_CHECK(g_state_init());
+    ESP_ERROR_CHECK(temp_init());
     ESP_ERROR_CHECK(vcore_init());
-    mining_init();
+    vcore_set_target(1.05f); // if you want local-only bring-up
 
-    vcore_set_target(1.05f);
-
-    // Optional: comment out if you want local-only bring-up
-    wifi_start();
-
+    /* start wifi: comment out if you want local-only bring-up */
     xTaskCreate(worker_task, "worker", 8192, NULL, 10, NULL);
+    wifi_start();
+    http_server_start();  // After WiFi: ensures network ready for AxeOS polling
 }
