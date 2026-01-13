@@ -1,0 +1,23 @@
+# ========= Bitaxe Ultra: sensible ESP32-S3 defaults =========
+CONFIG_IDF_TARGET="esp32s3"
+
+# Performance / scheduling
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_FREERTOS_HZ=1000
+
+# Logging (keep INFO while developing; can drop to WARN later)
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y
+
+# WiFi enabled (we compile WiFi code; you can disable later if you want)
+CONFIG_ESP_WIFI_ENABLED=y
+
+# Watchdog (help catch deadlocks)
+CONFIG_ESP_TASK_WDT_INIT=y
+
+# I2C + PWM (fan) support uses driver component; these are safe defaults
+# (Most are auto-enabled by using the driver APIs, but defaults file keeps it explicit)
+CONFIG_I2C_MASTER=y
+CONFIG_LEDC=y
+
+# Size-optimized build (good for sustainability: less overhead)
+CONFIG_COMPILER_OPTIMIZATION_SIZE=y
