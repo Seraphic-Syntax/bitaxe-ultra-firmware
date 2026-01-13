@@ -3,6 +3,7 @@
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include <stdio.h>
 
 #include "esp_log.h"
 #include "esp_event.h"
@@ -16,6 +17,7 @@
 #include "thermal.h"
 #include "vcore.h"
 #include "mining.h"
+
 
 static const char *TAG = "APP";
 
