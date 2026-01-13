@@ -19,8 +19,8 @@
 static const char *TAG = "APP";
 
 // Edit these:
-#define WIFI_SSID "STOP 2"
-#define WIFI_PASS "WIFI301095"
+#define WIFI_SSID "WIFI NETWORK"
+#define WIFI_PASS "WIFI PASSWORD"
 
 static void wifi_start(void)
 {
