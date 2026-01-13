@@ -80,6 +80,11 @@ void app_main(void)
     ESP_ERROR_CHECK(temp_init());
     ESP_ERROR_CHECK(vcore_init());
     vcore_set_target(1.05f); // if you want local-only bring-up
+    
+    vcore_set_target(1.35f);  // ← CHANGE: Bump from 1.05f for higher HR (safe 1.2-1.45V)
+    
+    // NEW: Boost freq (if g_state has asic_freq_target_mhz or freq_target_mhz)
+    g_state.asic_freq_target_mhz = 600; 
 
     /* start wifi: comment out if you want local-only bring-up */
     xTaskCreate(worker_task, "worker", 8192, NULL, 10, NULL);
