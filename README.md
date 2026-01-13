@@ -1,10 +1,9 @@
-🚀 Bitaxe Gamma 601: Unleash the Beast with Improved Firmware
+## Bitaxe Gamma 601: Unleash the Beast with Improved Firmware
 
 Imagine your Bitaxe Gamma 601 humming at **630 GH/s sustained**, sipping power at **15 J/TH**, and mining Bitcoin *wirelessly*—all while a crisp OLED display shows every thrilling stat in real-time. No more crashes, no PC babysitting, just pure, unstoppable hashing. This firmware **boosts capacities by 35%**, adding hybrid Monero side-mining (+180 H/s) and rock-solid uptime.
 
 
 [Full Compatibility](docs/COMPATIBILITY.md)
-
 
 
 ## See the difference:
@@ -22,8 +21,6 @@ Imagine your Bitaxe Gamma 601 humming at **630 GH/s sustained**, sipping power a
 
 **Essential Edge**: 30% hashrate surge, 25% efficiency win, WiFi freedom. Your rig evolves into a pro setup.
 
-⚡ Get Mining in 5 Minutes Flat
-
 1. Clone the magic: `git clone https://github.com/seraphic-syntax/bitaxe-gamma-firmware`
 2. USB your Bitaxe.
 3. Fire up Arduino IDE → Load `bitaxe-gamma.ino`.
@@ -33,7 +30,7 @@ Imagine your Bitaxe Gamma 601 humming at **630 GH/s sustained**, sipping power a
 
 Serial at 115200 baud spills all secrets.
 
-🔧 Make It Yours
+Make It Yours
 
 `config.h` is your cockpit:
 #define POOL_HOST "ckpool.org"
@@ -45,7 +42,7 @@ Serial at 115200 baud spills all secrets.
 
 Dial CPU (160-240 MHz) for peak power/perf.
 
-📊 Proof in the Numbers
+Proof in the Numbers
 
 Real-world tests (room temp, 12V/10A):
 | Metric      | Stock          | Yours Now     |
@@ -56,7 +53,7 @@ Real-world tests (room temp, 12V/10A):
 | **Uptime** | 85%           | **99.2%**    |
 
 
-🌟 Level Up Forever
+
 
 Enable OTA in config → Wireless upgrades anytime.
 Post your epic runs online. Fork, tweak, share!
