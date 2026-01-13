@@ -5,9 +5,9 @@ Imagine your Bitaxe Gamma 601 humming at **630 GH/s sustained**, sipping power a
 
 [Full Compatibility](docs/COMPATIBILITY.md)
 
-🔥 What You Gain Over Stock Firmware
 
-Stock works, but this elevates it. See the difference:
+
+## See the difference:
 
 | Feature              | Stock Firmware          | Supercharged Firmware              |
 |----------------------|-------------------------|------------------------------------|
