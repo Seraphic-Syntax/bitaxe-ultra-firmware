@@ -2,7 +2,6 @@
 
 Imagine your Bitaxe Gamma 601 humming at **630 GH/s sustained**, sipping power at **15 J/TH**, and mining Bitcoin *wirelessly*—all while a crisp OLED display shows every thrilling stat in real-time. No more crashes, no PC babysitting, just pure, unstoppable hashing. This firmware **boosts capacities by 35%**, adding hybrid Monero side-mining (+180 H/s) and rock-solid uptime.
 
-**Why settle for stock when you can dominate?** Dive in and transform your miner today.
 
 [Full Compatibility](docs/COMPATIBILITY.md)
 
