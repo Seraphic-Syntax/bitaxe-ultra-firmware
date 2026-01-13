@@ -1,0 +1,207 @@
+###############################################################################
+# Bitaxe Ultra Firmware (ESP-IDF) - Advanced .gitignore
+# Goal: keep repo clean, reproducible, and free of secrets/artifacts.
+###############################################################################
+
+##########
+# ESP-IDF / CMake / Ninja build artifacts
+##########
+build*/
+build-*/
+cmake-build*/
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+CTestTestfile.cmake
+compile_commands.json
+cmake_install.cmake
+install_manifest.txt
+rules.ninja
+build.ninja
+.ninja_deps
+.ninja_log
+
+# ESP-IDF generated config files
+sdkconfig
+sdkconfig.old
+sdkconfig.defaults.bak
+sdkconfig.bak
+
+# IDF component manager
+managed_components/
+dependencies.lock
+**/dependencies.lock
+idf_component.yml.lock
+**/idf_component.yml.lock
+
+# IDF Python env/tooling state
+.espressif/
+**/.espressif/
+# If you keep ESP-IDF inside the repo (not recommended), ignore it:
+esp-idf/
+
+# Flashing/monitor logs
+idf_py_stdout_output*
+idf_py_stderr_output*
+**/log/idf_py_stdout_output*
+**/log/idf_py_stderr_output*
+**/log/
+*.log
+
+# Partition tables and binaries produced by build (keep sources only)
+*.bin
+*.elf
+*.map
+*.hex
+*.a
+*.o
+*.obj
+*.d
+*.d.*
+*.su
+*.lst
+*.sym
+*.asm
+*.i
+*.s
+*.S
+*.out
+
+# OTA / core dumps / traces
+*.coredump
+*.trace
+*.trace.*
+core
+core.*
+
+##########
+# Release packaging outputs
+##########
+dist/
+release/
+releases/
+artifacts/
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+
+##########
+# Editor / IDE files
+##########
+# VS Code
+.vscode/
+*.code-workspace
+
+# CLion/JetBrains
+.idea/
+cmake-build-*/
+*.iml
+
+# Eclipse
+.project
+.cproject
+.settings/
+
+# Sublime / Atom
+*.sublime-project
+*.sublime-workspace
+.atom/
+
+# Vim / Neovim
+*~
+.*.swp
+.*.swo
+.*.swn
+*.swp
+*.swo
+*.swn
+*.tmp
+
+# Emacs
+\#*\#
+.\#*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+##########
+# Python artifacts (scripts, tooling)
+##########
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage.xml
+.coverage
+htmlcov/
+
+##########
+# Node / web tooling (if you later add a UI)
+##########
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+.cache/
+
+##########
+# Credentials / secrets (NEVER COMMIT)
+##########
+# Generic secret folders/files
+secrets/
+secret/
+*.secret
+*.secrets
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# Env/config files commonly containing secrets
+.env
+.env.*
+*.env
+config.local.*
+settings.local.*
+credentials.*
+wifi_credentials.*
+*.json.secret
+*.yaml.secret
+*.yml.secret
+
+# If you later store provisioning/keys
+nvs_keys/
+keys/
+certs/
+
+##########
+# OS / miscellaneous
+##########
+tmp/
+temp/
+.cache/
+*.bak
+*.orig
+
