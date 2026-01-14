@@ -1,3 +1,3 @@
-idf_component_register(SRCS "main.c" "http_server.c" "global_state.c" "mining.c" "thermal.c" "vcore.c" "i2c.c" "wifi.c"
+idf_component_register(SRC_DIRS "."
                        INCLUDE_DIRS "."
                        REQUIRES esp_http_server json esp_wifi nvs_flash driver esp_partition spiffs)
