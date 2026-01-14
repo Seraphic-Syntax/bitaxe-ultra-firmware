@@ -1,4 +1,3 @@
-cmake_minimum_required(VERSION 3.5)
-
-include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(bitaxe_ultra)
+idf_component_register(SRCS "main.c" "http_server.c" "global_state.c" "mining.c" "thermal.c" "vcore.c" "i2c.c" "wifi.c"
+                       INCLUDE_DIRS "."
+                       REQUIRES esp_http_server json esp_wifi nvs_flash driver esp_partition spiffs)
