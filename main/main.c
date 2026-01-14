@@ -1,11 +1,13 @@
 #include <string.h>
 #include <inttypes.h>
 
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include <stdio.h>
 
 #include "esp_log.h"
+#include "esp_timer.h"
 #include "esp_event.h"
 #include "nvs_flash.h"
 #include "esp_netif.h"
@@ -77,19 +79,30 @@ static void worker_task(void *arg)
 
 void app_main(void)
 {
-    ESP_ERROR_CHECK(nvs_flash_init());
-    ESP_ERROR_CHECK(g_state_init());
-    ESP_ERROR_CHECK(temp_init());
-    ESP_ERROR_CHECK(vcore_init());
-    vcore_set_target(1.05f); // if you want local-only bring-up
-    
-    vcore_set_target(1.35f);  // ← CHANGE: Bump from 1.05f for higher HR (safe 1.2-1.45V)
-    
-    // NEW: Boost freq (if g_state has asic_freq_target_mhz or freq_target_mhz)
-    g_state.asic_freq_target_mhz = 600; 
+    // Initialize NVS
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+      ESP_ERROR_CHECK(nvs_flash_erase());
+      ret = nvs_flash_init();
+    }
+    ESP_ERROR_CHECK(ret);
 
-    /* start wifi: comment out if you want local-only bring-up */
-    xTaskCreate(worker_task, "worker", 8192, NULL, 10, NULL);
+    // --- NEW CODE START ---
+    ESP_ERROR_CHECK(g_state_init());
+    
+    // Capture boot time for Uptime Counter
+    g_state.boot_time_us = esp_timer_get_time();
+    
+    // Set Default Fake Data (until sensors are real)
+    g_state.power_w = 12.5; 
+    g_state.fan_rpm = 4500;
+    // --- NEW CODE END ---
+
+    // ... (rest of your existing init code: temp, vcore, wifi, etc) ...
+    
+    // START WIFI
     wifi_start();
-    http_server_start();  // After WiFi: ensures network ready for AxeOS polling
+
+    // START SERVER
+    http_server_start();
 }
